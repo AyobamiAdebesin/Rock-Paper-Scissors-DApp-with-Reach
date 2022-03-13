@@ -34,5 +34,14 @@ await Promise.all([
     }),
     ctcBob.p.Bob({
         ...Player('Bob'),
+        acceptWager: (amt) => {
+            console.log(`Bob accepts the wager of ${fmt(amt)}.`);
+        },
     }),
 ]);
+
+const afterAlice = await getBalance(accAlice);
+const afterBob = await getBalance(accBob);
+
+console.log(`Alice went from ${beforeAlice} to ${afterAlice}.`);
+console.log(`Bob went from ${beforeBob} to ${afterBob}.`);
